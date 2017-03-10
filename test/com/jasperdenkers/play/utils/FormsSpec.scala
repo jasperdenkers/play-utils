@@ -8,11 +8,17 @@ class FormsSpec extends PlaySpec {
 
   "Forms" must {
     
-    import Forms.javaLocalDate
+    import Forms._
 
     val formWithJavaDate = Form(
       single(
         "date" -> javaLocalDate("yyyy-MM-dd")
+      )
+    )
+
+    val formWithEmailAddressesCommaSeparated = Form(
+      single(
+        "emails" -> emailAddressesCommaSeparated
       )
     )
 
@@ -33,6 +39,22 @@ class FormsSpec extends PlaySpec {
       bindedForm.errors.exists {
         formError => formError.key == "date" && formError.messages.contains("error.date")
       } mustBe true
+    }
+
+    "validate a list of comma separated emails" in {
+      val bindedForm = formWithEmailAddressesCommaSeparated.bind(Map(
+        "emails" -> "foor@bar.com, baz@bar.com"
+      ))
+
+      bindedForm.value mustBe Some("foor@bar.com,baz@bar.com")
+    }
+
+    "filter out duplicates in a list of valid comma separated emails" in {
+      val bindedForm = formWithEmailAddressesCommaSeparated.bind(Map(
+        "emails" -> "foor@bar.com, baz@bar.com, foor@bar.com"
+      ))
+
+      bindedForm.value mustBe Some("foor@bar.com,baz@bar.com")
     }
 
   }
