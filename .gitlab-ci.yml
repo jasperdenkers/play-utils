@@ -26,7 +26,7 @@ test:
   script:
     - sbt -Dsbt.ivy.home=`pwd`/.ivy2 -Dsbt.boot.directory=`pwd`/.sbt/boot ";clean;coverage;test;coverageReport"
     - mkdir scoverage-report
-    - cp -R target/scala-2.11/scoverage-report/* scoverage-report/
+    - cp -R target/scala-2.12/scoverage-report/* scoverage-report/
   artifacts:
     name: scoverage-report
     paths:
@@ -37,4 +37,4 @@ publish:
   only:
     - snapshot
   script:
-    - sbt -Dsbt.ivy.home=`pwd`/.ivy2 -Dsbt.boot.directory=`pwd`/.sbt/boot ";update;publishSigned"
+    - sbt -Dsbt.ivy.home=`pwd`/.ivy2 -Dsbt.boot.directory=`pwd`/.sbt/boot ";update;+publishSigned"

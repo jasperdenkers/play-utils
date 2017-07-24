@@ -4,6 +4,8 @@ organization := "com.jasperdenkers"
 
 scalaVersion := "2.11.8"
 
+crossScalaVersions := Seq("2.11.8", "2.12.2")
+
 homepage := Some(url("https://gitlab.com/jasperdenkers/play-utils"))
 
 licenses := Seq("MIT" -> url("https://opensource.org/licenses/mit-license"))
@@ -12,7 +14,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 libraryDependencies ++= Seq(
   // Testing
-  "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test
+  "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.1" % Test
 )
 
 publishTo := {
@@ -45,6 +47,8 @@ pomExtra := (
 )
 
 import ReleaseTransformations._
+
+releaseCrossBuild := true
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
