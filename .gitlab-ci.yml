@@ -1,4 +1,4 @@
-image: hseeberger/scala-sbt
+image: hseeberger/scala-sbt:8u265_1.4.5_2.13.4
 
 cache:
   paths:
@@ -24,13 +24,7 @@ stages:
 test:
   stage: test
   script:
-    - sbt -Dsbt.ivy.home=`pwd`/.ivy2 -Dsbt.boot.directory=`pwd`/.sbt/boot ";clean;coverage;test;coverageReport"
-    - mkdir scoverage-report
-    - cp -R target/scala-2.12/scoverage-report/* scoverage-report/
-  artifacts:
-    name: scoverage-report
-    paths:
-      - scoverage-report/*
+    - sbt -Dsbt.ivy.home=`pwd`/.ivy2 -Dsbt.boot.directory=`pwd`/.sbt/boot ";clean;test"
 
 publish:
   stage: publish
