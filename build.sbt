@@ -64,3 +64,5 @@ releaseProcess := Seq[ReleaseStep](
   commitNextVersion,
   pushChanges
 )
+
+Global / onChangedBuildSource := ReloadOnSourceChanges
