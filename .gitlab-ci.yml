@@ -31,4 +31,6 @@ publish:
   only:
     - snapshot
   script:
+    - gpg --version
+    - ps aux | grep gpg
     - sbt -Dsbt.ivy.home=`pwd`/.ivy2 -Dsbt.boot.directory=`pwd`/.sbt/boot ";update;+publishSigned"
