@@ -14,7 +14,7 @@ before_script:
   - mkdir $GPG_PATH
   - echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
   - echo ${PGP_SECRING} > $GPG_PATH/secring.asc
-  - gpg --import $GPG_PATH/secring.asc
+  - gpg --import <(echo "$PGP_SECRING")
   - gpg --list-key
 
 after_script:
