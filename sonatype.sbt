@@ -5,6 +5,8 @@ credentials ++= (for {
 
 pgpPassphrase := sys.env.get("PGP_PASSPHRASE").map(_.toCharArray)
 
-pgpSecretRing := file(sys.env.getOrElse("PGP_PATH", sys.props.apply("user.home") + "/.sbt/gpg") + "/secring.asc")
+pgpSecretRing := file(sys.env.getOrElse("GPG_PATH", sys.props.apply("user.home") + "/.sbt/gpg") + "/secring.asc")
 
-pgpPublicRing := file(sys.env.getOrElse("PGP_PATH", sys.props.apply("user.home") +  "/.sbt/gpg") + "/pubring.asc")
+pgpPublicRing := file(sys.env.getOrElse("GPG_PATH", sys.props.apply("user.home") +  "/.sbt/gpg") + "/pubring.asc")
+
+usePgpKeyHex(sys.env("PGP_KEY_HEX"))
