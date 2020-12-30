@@ -11,6 +11,7 @@ before_script:
   - export GPG_TTY=$(tty)
   - gpg --version
   - ps aux | grep gpg
+  - export GNUPGHOME=`pwd`/.gnupg
   - export GPG_PATH=`pwd`/.gpg
   - mkdir $GPG_PATH
   - echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
