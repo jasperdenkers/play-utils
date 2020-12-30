@@ -25,19 +25,17 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-pomExtra := (
-  <scm>
-    <url>git@gitlab.com:jasperdenkers/play-utils.git</url>
-    <connection>scm:git:git@gitlab.com:jasperdenkers/play-utils.git</connection>
-    <developerConnection>scm:git:git@gitlab.com:jasperdenkers/play-utils.git</developerConnection>
-  </scm>
-  <developers>
-    <developer>
-      <id>jasperdenkers</id>
-      <name>Jasper Denkers</name>
-      <url>http://jasperdenkers.com</url>
-    </developer>
-  </developers>
+import xerial.sbt.Sonatype._
+
+sonatypeProjectHosting := Some(GitLabHosting("jasperdenkers", "play-utils", "jasperdenkers@gmail.com"))
+
+developers := List(
+  Developer(
+    id="jasperdenkers",
+    name="Jasper Denkers",
+    email="jasperdenkers@gmailcom",
+    url=url("http://jasperdenkers.com")
+  )
 )
 
 import ReleaseTransformations._
