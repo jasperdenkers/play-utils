@@ -9,11 +9,6 @@ cache:
 before_script:
   - export GPG_TTY=$(tty) # https://stackoverflow.com/a/55032706
   - export GNUPGHOME=`pwd`/.gnupg # https://serverfault.com/a/528355
-
-  - export GPG_PATH=`pwd`/.gpg
-  - mkdir $GPG_PATH
-  #- echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
-  #- echo ${PGP_SECRING} > $GPG_PATH/secring.asc
   - gpg --batch --import <(echo "$PGP_SECRING")
 
 after_script:
