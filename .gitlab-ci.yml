@@ -8,6 +8,7 @@ cache:
 
 before_script:
   - apt-get install -y ca-certificates wget
+  - export GPG_TTY=$(tty)
   - gpg --version
   - ps aux | grep gpg
   - export GPG_PATH=`pwd`/.gpg
