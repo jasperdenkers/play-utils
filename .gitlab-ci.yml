@@ -8,15 +8,16 @@ cache:
 
 before_script:
   - apt-get install -y ca-certificates wget
-  - export GPG_TTY=$(tty)
-  - export GNUPGHOME=`pwd`/.gnupg
+  - export GPG_TTY=$(tty) # https://stackoverflow.com/a/55032706
+  - export GNUPGHOME=`pwd`/.gnupg # https://serverfault.com/a/528355
   - gpg --version
   - ps aux | grep gpg
+  
   - export GPG_PATH=`pwd`/.gpg
   - mkdir $GPG_PATH
   - echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
   - echo ${PGP_SECRING} > $GPG_PATH/secring.asc
-  - gpg --import $GPG_PATH/secring.asc
+  - gpg --import <(echo "$PGP_SECRING") # https://stackoverflow.com/a/43732926
   - gpg --list-key
 
 after_script:
