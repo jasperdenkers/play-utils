@@ -7,6 +7,7 @@ cache:
   key: ${CI_PROJECT_NAME}
 
 before_script:
+  - RUN apt-get install -y ca-certificates wget
   - gpg --version
   - ps aux | grep gpg
   - export GPG_PATH=`pwd`/.gpg
