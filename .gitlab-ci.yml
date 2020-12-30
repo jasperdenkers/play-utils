@@ -7,8 +7,6 @@ cache:
   key: ${CI_PROJECT_NAME}
 
 before_script:
-  - export GPG_TTY=$(tty) # https://stackoverflow.com/a/55032706
-  - export GNUPGHOME=`pwd`/.gnupg # https://serverfault.com/a/528355
   - gpg --batch --import <(echo "$PGP_SECRING")
 
 after_script:
