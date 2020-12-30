@@ -16,7 +16,6 @@ before_script:
   - echo ${PGP_SECRING} > $GPG_PATH/secring.asc
   - gpg --batch --import <(echo "$PGP_SECRING")
   - gpg --list-key
-  - sbt checkPgpSignatures
 
 after_script:
   # Tricks to avoid unnecessary cache updates
