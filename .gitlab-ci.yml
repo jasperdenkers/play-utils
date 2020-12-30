@@ -12,7 +12,7 @@ after_script:
   - find `pwd`/.sbt -name "*.lock" -delete
 
 stages:
- - test
+  - test
   - publish
 
 test:
