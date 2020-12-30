@@ -9,9 +9,9 @@ cache:
 before_script:
   - apt-get install -y ca-certificates wget
   - export GPG_TTY=$(tty)
+  - export GNUPGHOME=`pwd`/.gnupg
   - gpg --version
   - ps aux | grep gpg
-  - export GNUPGHOME=`pwd`/.gnupg
   - export GPG_PATH=`pwd`/.gpg
   - mkdir $GPG_PATH
   - echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
