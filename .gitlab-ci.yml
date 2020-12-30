@@ -12,10 +12,9 @@ before_script:
 
   - export GPG_PATH=`pwd`/.gpg
   - mkdir $GPG_PATH
-  - echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
-  - echo ${PGP_SECRING} > $GPG_PATH/secring.asc
+  #- echo ${PGP_PUBRING} > $GPG_PATH/pubring.asc
+  #- echo ${PGP_SECRING} > $GPG_PATH/secring.asc
   - gpg --batch --import <(echo "$PGP_SECRING")
-  - gpg --list-key
 
 after_script:
   # Tricks to avoid unnecessary cache updates
