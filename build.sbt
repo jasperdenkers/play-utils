@@ -31,10 +31,10 @@ sonatypeProjectHosting := Some(GitLabHosting("jasperdenkers", "play-utils", "jas
 
 developers := List(
   Developer(
-    id="jasperdenkers",
-    name="Jasper Denkers",
-    email="jasperdenkers@gmailcom",
-    url=url("http://jasperdenkers.com")
+    id = "jasperdenkers",
+    name = "Jasper Denkers",
+    email = "jasperdenkers@gmailcom",
+    url = url("http://jasperdenkers.com")
   )
 )
 
