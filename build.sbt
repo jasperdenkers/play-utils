@@ -2,9 +2,9 @@ name := """play-utils"""
 
 organization := "com.jasperdenkers"
 
-scalaVersion := "2.13.4"
+scalaVersion := "2.13.6"
 
-crossScalaVersions := Seq("2.12.12", "2.13.4")
+crossScalaVersions := Seq("2.12.14", "2.13.6")
 
 homepage := Some(url("https://gitlab.com/jasperdenkers/play-utils"))
 
@@ -21,7 +21,7 @@ publishTo := sonatypePublishToBundle.value
 
 publishMavenStyle := true
 
-publishArtifact in Test := false
+Test / publishArtifact := false
 
 pomIncludeRepository := { _ => false }
 
