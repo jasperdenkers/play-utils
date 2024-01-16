@@ -59,7 +59,4 @@ releaseProcess := Seq[ReleaseStep](
 
 releaseIgnoreUntrackedFiles := true
 
-sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
-sonatypeCredentialHost := "s01.oss.sonatype.org"
-
 Global / onChangedBuildSource := ReloadOnSourceChanges
