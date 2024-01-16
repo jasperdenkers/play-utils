@@ -2,9 +2,9 @@ name := """play-utils"""
 
 organization := "com.jasperdenkers"
 
-scalaVersion := "2.13.6"
+scalaVersion := "2.13.12"
 
-crossScalaVersions := Seq("2.12.14", "2.13.6")
+crossScalaVersions := Seq("2.13.12")
 
 homepage := Some(url("https://gitlab.com/jasperdenkers/play-utils"))
 
@@ -14,7 +14,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 libraryDependencies ++= Seq(
   // Testing
-  "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
+  "org.scalatestplus.play" %% "scalatestplus-play" % "6.0.0" % Test
 )
 
 publishTo := sonatypePublishToBundle.value
