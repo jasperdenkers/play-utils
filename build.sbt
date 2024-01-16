@@ -57,4 +57,6 @@ releaseProcess := Seq[ReleaseStep](
   pushChanges
 )
 
+releaseIgnoreUntrackedFiles := true
+
 Global / onChangedBuildSource := ReloadOnSourceChanges
